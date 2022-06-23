@@ -1,0 +1,77 @@
+; Jacking in...
+; Starting Jack-in Terminal: lein update-in :dependencies conj '[nrepl,"0.9.0"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.27.4"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +test repl :headless
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉org.clojars.punit-naik.in-memory-mongo꞉> 
+; Jack-in done.
+clj꞉org.clojars.punit-naik.in-memory-mongo꞉> 
+; Evaluating file: in_memory_mongo_test.clj
+; WARNING: random-uuid already refers to: #'clojure.core/random-uuid in namespace: monger.util, being replaced by: #'monger.util/random-uuid
+#'org.clojars.punit-naik.in-memory-mongo-test/update!-test
+clj꞉org.clojars.punit-naik.in-memory-mongo-test꞉> 
+; Evaluating file: in_memory_mongo_test.clj
+#'org.clojars.punit-naik.in-memory-mongo-test/update!-test
+; Running tests for org.clojars.punit-naik.in-memory-mongo-test...
+2022-06-23T13:51:29.331Z punit-ROG-Strix-G513QM-G513QM INFO [org.clojars.punit-naik.in-memory-mongo:12] - Creating MongoDB in-memory server at port 27017
+; 23 tests finished, all passing 👍, ns: 1, vars: 3
+clj꞉org.clojars.punit-naik.in-memory-mongo-test꞉> 
+; Evaluating file: in_memory_mongo_test.clj
+#'org.clojars.punit-naik.in-memory-mongo-test/delete!-test
+clj꞉org.clojars.punit-naik.in-memory-mongo-test꞉> 
+; Evaluating file: in_memory_mongo_test.clj
+#'org.clojars.punit-naik.in-memory-mongo-test/delete!-test
+; Running tests for org.clojars.punit-naik.in-memory-mongo-test...
+2022-06-23T14:01:11.029Z punit-ROG-Strix-G513QM-G513QM INFO [org.clojars.punit-naik.in-memory-mongo:12] - Creating MongoDB in-memory server at port 27017
+; FAIL in org.clojars.punit-naik.in-memory-mongo-test/delete!-test (in_memory_mongo_test.clj:72):
+; expected:
+12
+; actual:
+11
+; 24 tests finished, problems found. 😭 errors: 0, failures: 1, ns: 1, vars: 4
+clj꞉org.clojars.punit-naik.in-memory-mongo-test꞉> 
+; Evaluating file: in_memory_mongo_test.clj
+#'org.clojars.punit-naik.in-memory-mongo-test/delete!-test
+clj꞉org.clojars.punit-naik.in-memory-mongo-test꞉> 
+; Evaluating file: in_memory_mongo_test.clj
+#'org.clojars.punit-naik.in-memory-mongo-test/delete!-test
+; Running tests for org.clojars.punit-naik.in-memory-mongo-test...
+2022-06-23T14:02:12.937Z punit-ROG-Strix-G513QM-G513QM INFO [org.clojars.punit-naik.in-memory-mongo:12] - Creating MongoDB in-memory server at port 27017
+; FAIL in org.clojars.punit-naik.in-memory-mongo-test/delete!-test (in_memory_mongo_test.clj:76):
+; expected:
+12
+; actual:
+11
+; 24 tests finished, problems found. 😭 errors: 0, failures: 1, ns: 1, vars: 4
+clj꞉org.clojars.punit-naik.in-memory-mongo-test꞉> 
+; Evaluating file: in_memory_mongo_test.clj
+#'org.clojars.punit-naik.in-memory-mongo-test/delete!-test
+clj꞉org.clojars.punit-naik.in-memory-mongo-test꞉> 
+; Evaluating file: in_memory_mongo_test.clj
+#'org.clojars.punit-naik.in-memory-mongo-test/delete!-test
+; Running tests for org.clojars.punit-naik.in-memory-mongo-test...
+2022-06-23T14:02:32.642Z punit-ROG-Strix-G513QM-G513QM INFO [org.clojars.punit-naik.in-memory-mongo:12] - Creating MongoDB in-memory server at port 27017
+OLD COUNT 12
+; FAIL in org.clojars.punit-naik.in-memory-mongo-test/delete!-test (in_memory_mongo_test.clj:77):
+; expected:
+12
+; actual:
+11
+; 24 tests finished, problems found. 😭 errors: 0, failures: 1, ns: 1, vars: 4
+clj꞉org.clojars.punit-naik.in-memory-mongo-test꞉> 
+; Evaluating file: in_memory_mongo_test.clj
+#'org.clojars.punit-naik.in-memory-mongo-test/delete!-test
+clj꞉org.clojars.punit-naik.in-memory-mongo-test꞉> 
+; Evaluating file: in_memory_mongo_test.clj
+#'org.clojars.punit-naik.in-memory-mongo-test/delete!-test
+; Running tests for org.clojars.punit-naik.in-memory-mongo-test...
+2022-06-23T14:02:54.971Z punit-ROG-Strix-G513QM-G513QM INFO [org.clojars.punit-naik.in-memory-mongo:12] - Creating MongoDB in-memory server at port 27017
+; 24 tests finished, all passing 👍, ns: 1, vars: 4
+clj꞉org.clojars.punit-naik.in-memory-mongo-test꞉> 
+; nREPL Connection was closed

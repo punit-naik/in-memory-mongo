@@ -1,0 +1,101 @@
+<html>
+ <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="../../../coverage.css"/>  <title> org/clojars/punit_naik/in_memory_mongo.clj </title>
+ </head>
+ <body>
+<span class="covered" title="1 out of 1 forms covered">
+                001&nbsp;&nbsp;(ns&nbsp;org.clojars.punit-naik.in-memory-mongo
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                002&nbsp;&nbsp;&nbsp;&nbsp;(:import&nbsp;[de.bwaldvogel.mongo&nbsp;MongoServer]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[de.bwaldvogel.mongo.backend.memory&nbsp;MemoryBackend]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                004&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[java.net&nbsp;ServerSocket])
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                005&nbsp;&nbsp;&nbsp;&nbsp;(:require&nbsp;[taoensso.timbre&nbsp;:as&nbsp;log]))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                006&nbsp;&nbsp;
+                </span><br/>
+<span class="partial" title="7 out of 8 forms covered">
+                007&nbsp;&nbsp;(defonce&nbsp;localhost&nbsp;&quot;127.0.0.1&quot;)
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                008&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                009&nbsp;&nbsp;(defn&nbsp;mongo-server
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                010&nbsp;&nbsp;&nbsp;&nbsp;[&amp;&nbsp;[port]]
+                </span><br/>
+<span class="partial" title="7 out of 8 forms covered">
+                011&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[port&nbsp;(int&nbsp;(or&nbsp;port&nbsp;27017))]
+                </span><br/>
+<span class="covered" title="17 out of 17 forms covered">
+                012&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(log&#x2F;info&nbsp;&quot;Creating&nbsp;MongoDB&nbsp;in-memory&nbsp;server&nbsp;at&nbsp;port&quot;&nbsp;port)
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[server&nbsp;(MongoServer.&nbsp;(MemoryBackend.))]
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                014&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(.bind&nbsp;server&nbsp;localhost&nbsp;port)
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                015&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;server)))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                016&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                017&nbsp;&nbsp;(defn&nbsp;start
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                018&nbsp;&nbsp;&nbsp;&nbsp;[&amp;&nbsp;[port]]
+                </span><br/>
+<span class="partial" title="6 out of 7 forms covered">
+                019&nbsp;&nbsp;&nbsp;&nbsp;(loop&nbsp;[port&nbsp;(or&nbsp;port&nbsp;27017)]
+                </span><br/>
+<span class="partial" title="4 out of 5 forms covered">
+                020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[socket&nbsp;(try&nbsp;(ServerSocket.&nbsp;port)
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                021&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(catch&nbsp;Exception&nbsp;_&nbsp;nil))]
+                </span><br/>
+<span class="covered" title="2 out of 2 forms covered">
+                022&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(if&nbsp;socket
+                </span><br/>
+<span class="covered" title="2 out of 2 forms covered">
+                023&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(do&nbsp;(.close&nbsp;socket)
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                024&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(mongo-server&nbsp;port))
+                </span><br/>
+<span class="not-covered" title="0 out of 3 forms covered">
+                025&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[new-port&nbsp;(inc&nbsp;port)]
+                </span><br/>
+<span class="not-covered" title="0 out of 21 forms covered">
+                026&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(log&#x2F;info&nbsp;(str&nbsp;&quot;Port&nbsp;&quot;&nbsp;port&nbsp;&quot;&nbsp;is&nbsp;busy,&nbsp;retrying&nbsp;with&nbsp;port&nbsp;&quot;&nbsp;new-port))
+                </span><br/>
+<span class="not-covered" title="0 out of 1 forms covered">
+                027&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(recur&nbsp;new-port))))))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                028&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                029&nbsp;&nbsp;(defn&nbsp;stop
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                030&nbsp;&nbsp;&nbsp;&nbsp;[^MongoServer&nbsp;server]
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                031&nbsp;&nbsp;&nbsp;&nbsp;(.shutdown&nbsp;server))
+                </span><br/>
+ </body>
+</html>
