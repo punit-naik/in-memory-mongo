@@ -2,6 +2,9 @@
 
 A Clojure library designed to work with an in-memory version of MongoDB for testing purposes.
 
+[![CircleCI](https://circleci.com/gh/punit-naik/in-memory-mongo/tree/master.svg?style=svg)](https://circleci.com/gh/punit-naik/in-memory-mongo/tree/master)
+[![Clojars Project](https://img.shields.io/clojars/v/org.clojars.punit-naik/in-memory-mongo.svg)](https://clojars.org/org.clojars.punit-naik/in-memory-mongo)
+
 ## Usage
 
 ### Test
